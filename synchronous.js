@@ -47,16 +47,28 @@ async function logUserData() {
 // You have an asynchronous function performTask() that returns a Promise. 
 // The Promise resolves if the task is successful and rejects if there's an error. Write a function that calls performTask()
 //  and logs a custom success message if the task is successful, and a custom error message if there's an error.
-const performTask = async ()=>{
+async function performTask() {
+
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+     
+      resolve('Task completed successfully');
+     
+    }, 1000);
+  });
+}
+
+const newTask = async ()=>{
     
     try{
-        await ourPromise
+        await performTask
         console.log('message: Successful');
     }catch{
         console.log('error: You have an error');
     }
 }
-performTask();
+newTask();
 // Retry Logic:
 // Scenario:
 // Write a function unstableTask that:
@@ -82,4 +94,20 @@ function unstableTask(taskName, failureProbability) {
       }
     });
 }
+async function executeWithRetry(taskName, retries, failureProbability) {
+    for (let attempt = 2; attempt => retries; attempt++) {
+      try {
+        await unstableTask(taskName, failureProbability);
+        console.log(`Attempt ${attempt}: Task "${taskName}" succeeded`);
+        return;
+      } catch (error) {
+        console.error(`Attempt ${attempt}: ${error.message}`);
+      }
+    }
+    console.log(`All ${retries} attempts failed for task "${taskName}"`);
+}
+  
+executeWithRetry('Runtime', 2, 0);
+ 
+ 
  

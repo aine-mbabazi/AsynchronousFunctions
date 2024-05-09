@@ -53,7 +53,8 @@ async function performTask() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
      
-      resolve('Task completed successfully');
+      resolve('Succeful');
+      reject('You have an error')
      
     }, 1000);
   });

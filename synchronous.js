@@ -11,36 +11,41 @@ messageLog("You will never walk alone.",2000)
 // You have an array of user IDs and a function getUserData(id) that returns a Promise with user data when given a user ID. 
 // Write an asynchronous function that fetches and logs the data for each user ID one by one, in sequence.
 
-const userIds = [2031, 2024, 2023, 2045];
+// const userIds = [2031, 2024, 2023, 2045];
 
 
 
 
-function getUserData(id) {
+// function getUserData(id) {
 
 
- return new Promise((resolve, reject) => {
-   setTimeout(() => {
+//  return new Promise((resolve, reject) => {
+//    setTimeout(() => {
     
-     const userData = { id, name: `User ${id}` };
-     resolve(userData);
-   }, 1000);
- });
-}
-async function logUserData() {
-   for (const userId of userIds) {
-     try {
-       const userData = await getUserData(userId);
-       console.log(`User ID ${userId}: ${userData.name}`);
-     } catch (error) {
-       console.error(`Error fetching data for User ID ${userId}: ${error.message}`);
-     }
-   }
- }
-  logUserData()
+//      const userData = { id, name: `User ${id}` };
+//      resolve(userData);
+//    }, 1000);
+//  });
+// }
+// async function logUserData() {
+//    for (const userId of userIds) {
+//      try {
+//        const userData = await getUserData(userId);
+//        console.log(`User ID ${userId}: ${userData.name}`);
+//      } catch (error) {
+//        console.error(`Error fetching data for User ID ${userId}: ${error.message}`);
+//      }
+//    }
+//  }
+//   logUserData()
 
-
-
+// const userDataStorage = [{id:1,name:'susan',age:20},
+// {id:2,name:'eshe',age:56}]
+// async function userData(userId){
+//   try{
+//     if(!userid)
+//   }
+// }
 
   
 
